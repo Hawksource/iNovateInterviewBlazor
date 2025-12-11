@@ -1,0 +1,26 @@
+# Build
+/iNovateBlazor/bin/
+/iNovateBlazor/obj/
+/iNovateBlazor/out/
+
+# User-specific
+*.user
+*.suo
+*.userprefs
+*.DS_Store
+
+# VS Code / Rider
+.vscode/
+.idea/
+
+# VS folder
+.vs/
+
+# Logs
+*.log
+
+# NuGet packages (only if packages are not restored by source)
+packages/
+
+# ASP.NET publish artifacts
+wwwroot/dist/

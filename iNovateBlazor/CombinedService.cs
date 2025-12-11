@@ -5,8 +5,15 @@ public class CombinedService(FibService fibService, FizzBuzzService fizzBuzzServ
     private readonly FibService _fibService = fibService;
     private readonly FizzBuzzService _fizzService = fizzBuzzService;
 
+    /*
+    input is safe: if < 1, an empty list is returned. Safety for the other arguments depends on the functions they are passed to.
+    */
     public string[] CalcCombined(BigInteger input, int offset1=1, int offset2=2, int div1=3, int div2=5, string word1="fizz", string word2="buzz")
     {
+        if(input < 1)
+        {
+            return [];
+        }
         BigInteger[] fib = _fibService.CalcFib(input, offset1,offset2);
         string[] output = new string[(int)input];
 
