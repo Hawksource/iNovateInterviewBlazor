@@ -1,0 +1,32 @@
+@page "/fib"
+@using System.Numerics
+@rendermode InteractiveServer
+@inject FibService fService
+
+<PageTitle>Fibonacci Sequence</PageTitle>
+
+<h1>Fibonacci Sequence</h1>
+<div style="display:flex; flex-direction:column">
+<input type="number" placeholder="target number" @bind="target"/>
+<input type="number" placeholder="Optional: Enter offset 1, default = 1" title="offset 1, default = 1" @bind="offset1"/>
+<input type="number" placeholder="Optional: Enter offset 2, default = 2" title="offset 2, default = 2" @bind="offset2"/>
+<input type="submit" @onclick="handleSubmit" />
+@foreach (BigInteger n in output) {
+    <p>@n</p>
+}
+</div>
+
+
+
+@code {
+    int target;
+    int offset1 = 1;
+    int offset2 = 2;
+    List<BigInteger> output = new List<BigInteger>();
+
+    private void handleSubmit() {
+        output.Clear();
+        output = fService.CalcFib(target,offset1,offset2).ToList();
+        
+    }
+}

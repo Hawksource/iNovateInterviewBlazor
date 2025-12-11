@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GILxN85A6S00/CzyrBwvCbXOtgKYWRxAATlIXlsCOZuXHm2sUd6KrDH1E6e7ZbnY9NHWb4aHoYmM3aYOiSPdZQ==",
+  "success": true,
+  "projectFilePath": "/home/gavin/Gits/iNovateBlazor/iNovateBlazor/iNovateBlazor.csproj",
+  "expectedPackageFiles": [
+    "/home/gavin/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.22/microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512"
+  ],
+  "logs": []
+}

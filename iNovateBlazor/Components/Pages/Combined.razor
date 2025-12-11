@@ -1,0 +1,40 @@
+@page "/combined"
+@using System.Numerics
+@rendermode InteractiveServer
+@inject CombinedService cService
+
+<PageTitle>Combined FizzBuzz + Fibonacci Sequence</PageTitle>
+
+<h1>Combined FizzBuzz + Fibonacci Sequence</h1>
+<div style="display:flex; flex-direction:column">
+<input type="number" placeholder="target number" @bind="target"/>
+<input type="number" placeholder="Optional: Enter divisor 1, default = 3" title="Divisor 1, default = 3" @bind="div1"/>
+<input type="number" placeholder="Optional: Enter divisor 2, default = 5" title="Divisor 2, default = 5" @bind="div2"/>
+<input type="text" placeholder="Optional: Enter word 1, default = 'fizz'" title="word 1" @bind="word1"/>
+<input type="text" placeholder="Optional: Enter word 2, default = 'buzz'" title="word 2" @bind="word2"/>
+<input type="number" placeholder="Optional: Enter offset 1, default = 1" title="offset 1, default = 1" @bind="offset1"/>
+<input type="number" placeholder="Optional: Enter offset 2, default = 2" title="offset 2, default = 2" @bind="offset2"/>
+<input type="submit" @onclick="handleSubmit" />
+@foreach (string s in output) {
+    <p>@s</p>
+}
+</div>
+
+
+
+@code {
+    int target;
+    int offset1 = 1;
+    int offset2 = 2;
+    int div1 = 3;
+    int div2 = 5;
+    string word1 = "fizz";
+    string  word2 = "buzz";
+    List<string> output = new List<string>();
+
+    private void handleSubmit() {
+        output.Clear();
+        output = cService.CalcCombined(target,offset1,offset2,div1,div2,word1,word2).ToList();
+        
+    }
+}
